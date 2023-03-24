@@ -1,5 +1,5 @@
 <style>
-  .hotspot{
+  .Hotspot{
     display: block;
     width: 20px;
     height: 20px;
@@ -10,12 +10,12 @@
     pointer-events: none;
   }
 
-  .hotspot[slot="hotspot-hand"]{
+  .Hotspot[slot="hotspot-hand"]{
     --min-hotspot-opacity: 0;
     background-color: red;
   }
 
-  .hotspot[slot="hotspot-foot"]:not([data-visible]) {
+  .Hotspot[slot="hotspot-foot"]:not([data-visible]) {
     background-color: transparent;
     border: 3px solid blue;
   }
