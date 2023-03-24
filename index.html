@@ -11,23 +11,13 @@
   </head>
   <body>
     <!-- <model-viewer> HTML element -->
-    <model-viewer src="CarShow.gltf" ar ar-modes="scene-viewer webxr quick-look" camera-controls poster="poster.webp" shadow-intensity="5">
-    <button class="hotspot" slot="hotspot-visor data-surface="0 0 2470 2496 2471 0.047 0.912 0.040" data-visibility-attribute="visible">
-        <div class="annotation">Wheels</div>
-    </button><button class="hotspot" slot="hotspot-hand" data-surface="2 0 1326 1314 3 0.038 0.083 0.879" data-visibility-attribute="visible">
-        <div class="annotation">Engine</div>
-    </button><button class="hotspot" slot="hotspot-foot" data-surface="0 0 257 238 252 0.733 0.244 0.023" data-visibility-attribute="visible">
-        <div class="annotation">Seating</div>
-    </button>
-    <div class="progress-bar hide" slot="progress-bar">
-        <div class="update-bar"></div>
-    </div>
-    <button slot="ar-button" id="ar-button">
-        View in your space
-    </button>
-    <div id="ar-prompt">
-        <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
-    </div>
+    <model-viewer id="hotspot-demo" ar ar-modes="webxr" camera-controls touch-action="pan-y" src="CarShow.gltf" poster="../../assets/poster-astronaut.webp" shadow-intensity="1" alt="A 3D model of an astronaut.">
+  <button class="hotspot" slot="hotspot-visor" data-position="0 1.75 0.35" data-normal="0 0 1"></button>
+  <button class="hotspot" slot="hotspot-hand" data-position="-0.54 0.93 0.1" data-normal="-0.73 0.05 0.69">
+    <div class="annotation">This hotspot disappears completely</div>
+  </button>
+  <button class="hotspot" slot="hotspot-foot" data-position="0.16 0.1 0.17" data-normal="-0.07 0.97 0.23" data-visibility-attribute="visible"></button>
+  <div class="annotation">This annotation is fixed in screen-space</div>
 </model-viewer>
 
     <script src="script.js"></script>
