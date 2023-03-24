@@ -1,13 +1,34 @@
-// Handles loading the events for <model-viewer>'s slotted progress bar
-const onProgress = (event) => {
-  const progressBar = event.target.querySelector('.progress-bar');
-  const updatingBar = event.target.querySelector('.update-bar');
-  updatingBar.style.width = `${event.detail.totalProgress * 100}%`;
-  if (event.detail.totalProgress === 1) {
-    progressBar.classList.add('hide');
-    event.target.removeEventListener('progress', onProgress);
-  } else {
-    progressBar.classList.remove('hide');
+<style>
+  .hotspot{
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: blue;
+    box-sizing: border-box;
+    pointer-events: none;
   }
-};
-document.querySelector('model-viewer').addEventListener('progress', onProgress);
+
+  .hotspot[slot="hotspot-hand"]{
+    --min-hotspot-opacity: 0;
+    background-color: red;
+  }
+
+  .hotspot[slot="hotspot-foot"]:not([data-visible]) {
+    background-color: transparent;
+    border: 3px solid blue;
+  }
+
+  .annotation{
+    background-color: #888888;
+    position: absolute;
+    transform: translate(10px, 10px);
+    border-radius: 10px;
+    padding: 10px;
+  }
+  /* This keeps child nodes hidden while the element loads */
+  :not(:defined) > * {
+    display: none;
+  }
+</style>
